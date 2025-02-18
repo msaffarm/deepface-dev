@@ -10,7 +10,7 @@ docker build -f devgpu.Dockerfile -t deepface:gpu .
 
 2. Run the following command to extract faces from the video file.
 ```bash
-docker run -it --name deepfacegpu --gpus all -v $PWD:/app deepface:gpu process_video.py --video_path /app/data/<your_video.mp4> --downsampling_rate 1
+docker run -it --rm --gpus all -v $PWD:/app deepface:gpu python /app/process_video.py --video_path /app/data/<your_video.mp4> --downsampling_rate 1
 ```
 
 3. You can see the results created in a directory `/app/data/processed_video_retinaface` director inside [`data`](./data/) directory.
